@@ -17,16 +17,16 @@ const headers = {
 
 
 
-function getReports(url) {
+function getReport(url) {
     fetch(full_path, headers)
     .then(res => res.text())
     //.then(data => bearerToken = data)
-    .then(data => fs.writeFile(`./reports/${path}.json`, data, function (err) {
+    .then(data => fs.writeFile(`${path}.json`, data, function (err) {
         if (err) throw err;
         console.log("Peep This.")
     }))
     .catch(error => console.log('error', error))
 }
 
-getReports(url);
+getReport(url);
 
