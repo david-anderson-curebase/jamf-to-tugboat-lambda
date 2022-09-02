@@ -7,7 +7,7 @@ const url = process.env.URL
 const headers = {
     method: 'POST',
     headers: {
-        'Content-Type': 'application/json',
+        'accept': 'application/json',
         'Authorization': `Basic ${credentials}`
     },
     redirect: 'follow'
