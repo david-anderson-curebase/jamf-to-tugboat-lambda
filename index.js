@@ -1,1 +1,1 @@
-var msg = require('./bearerRequest.js')
+var token = require('./BearerRequest.js')

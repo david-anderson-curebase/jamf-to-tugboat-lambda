@@ -19,8 +19,7 @@ function getToken(url) {
     fetch(url, headers)
     .then(res => res.json())
     .then(data => bearerToken = data)
-    //.then(() => console.log(`Bearer Token: ${typeof bearerToken}`))
-    .then(() => console.log(`Bearer Token: ${bearerToken.token} \n Expiration: ${bearerToken.expires}`))
+    .then(() => console.log(`\n Bearer Token: ${bearerToken.token}\n\n Expiration: ${bearerToken.expires}`))
     .catch(error => console.log('error', error))
 }
 
