@@ -1,6 +1,8 @@
 // .ENV contains our secure credential information as well as the basic URL for our bearer token call
 require('dotenv').config();
 var fs = require('fs');
+const { get } = require('http');
+const getReport = require('./GetReport.js');
 // formats our credentials as a Base64 string for use in the API call
 const credentials = btoa(`${process.env.ACCOUNT}:${process.env.CREDENTIAL}`);
 const url = process.env.TOKEN_URL;
@@ -13,11 +15,12 @@ const headers = {
     redirect: 'follow'
 };
 
-function getToken(url, headers, cb) {
+function getToken(url, headers) {
     let token;
     fetch(url, headers)
     .then(res => res.json())
-    .then(data => cb(data))
+    .then(data => data.token)
+    //.then(data => cb(data))
     /*.then(data => fs.writeFile('bearer_token', data.token, function (err) {
         if (err) throw err;
         console.log("Peep This.")
@@ -27,14 +30,10 @@ function getToken(url, headers, cb) {
 
 /*let token = fs.readFile('bearer_token', "utf8", (err, data) => {
     console.log(data);
-});
+});*/
 
-return token;*/
-
-function logToken(payload) {
-    return payload.token;
-}
-
-getToken(url, headers, logToken);
+console.log(getReport.message)
 
 //export default getToken;
+/*exports.payload = getToken(url, headers);
+exports.message = 'oi oi oi'*/

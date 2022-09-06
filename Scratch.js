@@ -1,5 +1,7 @@
-var fs = require('fs');
+const helloYou = (name) => {
+    console.log(`Hello ${name}!`)
+}
 
-fs.readFile('bearer_token', "utf8", (err, data) => {
-    console.log(data);
-})
+let welcome = 'Dumptruck!'
+
+export { welcome, helloYou }

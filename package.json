@@ -1,6 +1,7 @@
 {
   "name": "jamf-to-tugboat-lambda",
   "version": "1.0.0",
+  "type": "module",
   "description": "the Node environment for running the code",
   "main": "index.js",
   "scripts": {
