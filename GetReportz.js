@@ -6,7 +6,7 @@ const path = 'TBLSoftwareInventoryPopulation'
 const full_path = url + path
 //const reportsArray = [2, 3, 10]
 
-function getReports(token) {
+function getReportz(token) {
     
     const headers = {
         method: 'GET',
@@ -26,4 +26,4 @@ function getReports(token) {
         .catch(error => console.log('error', error))
 }};
 
-export { getReports };
+export { getReportz };

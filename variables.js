@@ -12,6 +12,11 @@ const bearerHeaders = {
     redirect: 'follow'
 };
 const bearerURL = 'https://curebase.jamfcloud.com/api/v1/auth/token';
+let reportsArray = [
+    {'name': 'TugboatLogicFullInventorySearch', 'id': 2},
+    {'name': 'TugboatLogicAntivirusSearch', 'id': 3},
+    {'name': 'TBLSoftwareInventoryPopulation', 'id': 22},
+    {'name': 'TugboatLogicDiskEncryptionSearch', 'id': 1}
+];
 
-
-export { credentials, bearerHeaders }
+export { credentials, bearerHeaders, reportsArray }
