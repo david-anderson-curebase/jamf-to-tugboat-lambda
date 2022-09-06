@@ -1,16 +1,9 @@
-import dotenv from 'dotenv';
-dotenv.config();
-import { getToken } from "./bearerRequest.js";
+import fs from 'fs';
+import { getToken } from "./BearerRequest.js";
+import { credentials, bearerHeaders } from "./variables.js";
 
-const credentials = btoa(`${process.env.ACCOUNT}:${process.env.CREDENTIAL}`);
-const url = process.env.TOKEN_URL;
-const headers = {
-    method: 'POST',
-    headers: {
-        'accept': 'application/json',
-        'Authorization': `Basic ${credentials}`
-    },
-    redirect: 'follow'
-};
+const helloWorld = (payload) => {
+    console.log(`Here's your token, sir: ${payload}`)
+}
 
-console.log(getToken(url, headers));
+getToken(bearerHeaders, helloWorld);
