@@ -13,8 +13,8 @@ const headers = {
     redirect: 'follow'
 };
 
-
 function getToken() {
+    let token;
     fetch(url, headers)
     .then(res => res.json())
     .then(data => fs.writeFile('bearer_token', data.token, function (err) {
@@ -24,5 +24,4 @@ function getToken() {
     .catch(error => console.log('error', error))
 }
 
-getToken();
 //export default getToken;
