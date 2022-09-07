@@ -1,12 +1,5 @@
-import fs from 'fs';
-var time;
-var date;
-var month;
-var timestamp;
-
 const getTimestamp = () => {
-    let timestamp = 'YYYY-MM-DD';
-    time = new Date;
+    let time = new Date;
     let date = String(time.getDate());
     let month = String(time.getMonth());
     function convertDigits(time) {
@@ -17,4 +10,4 @@ const getTimestamp = () => {
     console.log(`${time.getFullYear()}-${month}-${date}`)
 }
 
-getTimestamp();
+export { getTimestamp };

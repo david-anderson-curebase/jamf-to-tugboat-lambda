@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 
-const credentials = btoa(`${process.env.ACCOUNT}:${process.env.CREDENTIAL}`);
+const credentials = btoa(`${process.env.BEARER_ACCOUNT}:${process.env.BEARER_CREDENTIAL}`);
 const bearerHeaders = {
     method: 'POST',
     headers: {
