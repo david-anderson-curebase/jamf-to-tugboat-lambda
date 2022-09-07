@@ -11,12 +11,16 @@ const bearerHeaders = {
     },
     redirect: 'follow'
 };
-const bearerURL = 'https://curebase.jamfcloud.com/api/v1/auth/token';
+
+const jamfBearerURL = 'https://curebase.jamfcloud.com/api/v1/auth/token';
+const jamfReportURL = 'https://curebase.jamfcloud.com/JSSResource/computerreports/id'
+
 let reportsArray = [
-    {'name': 'TugboatLogicFullInventorySearch', 'id': 2},
-    {'name': 'TugboatLogicAntivirusSearch', 'id': 3},
-    {'name': 'TBLSoftwareInventoryPopulation', 'id': 22},
-    {'name': 'TugboatLogicDiskEncryptionSearch', 'id': 1}
+    {'name': 'TugboatLogicFullInventorySearch', 'source': `${jamfReportURL}/3`, 'dest': 'https://openapi.tugboatlogic.com/api/v0/evidence/collector/26148/'},
+    {'name': 'TBLMDMCompliance', 'source': `${jamfReportURL}/21`, 'dest': 'https://openapi.tugboatlogic.com/api/v0/evidence/collector/26214/'},
+    {'name': 'TBLPatchSoftwareTitles', 'source': `https://curebase.jamfcloud.com/JSSResource/patchsoftwaretitles`, 'dest': 'https://openapi.tugboatlogic.com/api/v0/evidence/collector/26215/'}
 ];
+
+
 
 export { credentials, bearerHeaders, reportsArray }

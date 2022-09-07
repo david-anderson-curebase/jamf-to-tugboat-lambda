@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { reportsArray } from './variables.js';
 
-const url = 'https://curebase.jamfcloud.com/JSSResource/computerreports/id/'
+const url = 'https://curebase.jamfcloud.com/JSSResource/'
 const path = 'TBLSoftwareInventoryPopulation'
 const full_path = url + path
 //const reportsArray = [2, 3, 10]
