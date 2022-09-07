@@ -1,6 +1,7 @@
 import fs from 'fs';
+import { getTimestamp } from './GetTimestamp.js';
 
-var testJSON = {'name': 'dumptruck', 'species': 'cat', 'age': 1}
+/*var testJSON = {'name': 'dumptruck', 'species': 'cat', 'age': 1}
 
 let testArray = ['dumptruck', 'thadd', 'bronson']
 var body = fs.readFile('computerreports.json', 'utf-8', function(err,data) {
@@ -26,6 +27,6 @@ var requestOptions = {
 fetch("https://openapi.tugboatlogic.com/api/v0/evidence/collector/26148/", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+  .catch(error => console.log('error', error));*/
 
-console.log(typeof testJSON)
+console.log(getTimestamp())

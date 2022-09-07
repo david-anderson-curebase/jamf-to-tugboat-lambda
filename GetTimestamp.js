@@ -4,9 +4,7 @@ const getTimestamp = () => {
     let month = String(time.getMonth());
     (date.length > 1) ? date = `${date}` : date = `0${date}`;
     (month.length > 1) ? month = `${month}` : month = `0${month}`;
-    console.log(`${time.getFullYear()}-${month}-${date}`);
+    return `${time.getFullYear()}-${month}-${date}`;
 }
-
-getTimestamp()
 
 export { getTimestamp };

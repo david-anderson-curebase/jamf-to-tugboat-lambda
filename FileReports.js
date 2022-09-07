@@ -1,23 +1,21 @@
+import fetch, { FormData, fileFromSync } from 'node-fetch';
+import { getTimestamp } from './GetTimestamp.js'
 import dotenv from 'dotenv';
 dotenv.config()
 
-const body = new FormData
-body.append("collected", "2022-09-06")
-body.append("file", "@./reports/TBLSoftwareInventoryPopulation.json;type=application/json")
-body.append("", "\\")
+const fileReports = () => {
+    const form = new FormData();
+    form.append('collected', getTimestamp());
+    form.append('file', fileFromSync('./reports/TBLSoftwareInventoryPopulation.json'));
+    
+    fetch('https://openapi.tugboatlogic.com/api/v0/evidence/collector/26148/', {
+        method: 'POST',
+        headers: {
+            'X-API-KEY': `${process.env.TUGBOAT_X_API_KEY}`,
+            'Authorization': 'Basic ' + btoa(`${process.env.TUGBOAT_USERNAME}:${process.env.TUGBOAT_PASSWORD}`)
+        },
+        body: form
+    });
+}
 
-fetch("https://openapi.tugboatlogic.com/api/v0/evidence/collector/26148/", {
-    method: "POST",  
-    body: body,
-    headers: {
-    Authorization: `Basic ${process.env.TUGBOAT_PASSWORD}`,
-    "Content-Type": "multipart/form-data",
-    "X-Api-Key": `${process.env.TUGBOAT_X_API_KEY}`
-  }
-})
-
-console.log()
-
-
-var date = new Date().toISOString();
-console.log(date);
+fileReports();

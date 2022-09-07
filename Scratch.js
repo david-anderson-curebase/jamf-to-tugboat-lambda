@@ -1,20 +1,18 @@
-import fs from 'fs';
-var time;
-var date;
-var month;
-var timestamp;
+import fetch, { FormData, fileFromSync } from 'node-fetch';
+import { getTimestamp } from './GetTimestamp.js'
+import dotenv from 'dotenv';
+dotenv.config()
 
-const getTimestamp = () => {
-    let timestamp = 'YYYY-MM-DD';
-    time = new Date;
-    let date = String(time.getDate());
-    let month = String(time.getMonth());
-    function convertDigits(time) {
-        (date.length > 1) ? date = `${date}` : date = `0${date}`;
-        (month.length > 1) ? month = `${month}` : month = `0${month}`;
-      }
-    convertDigits();
-    console.log(`${time.getFullYear()}-${month}-${date}`)
-}
+const form = new FormData();
+form.append('collected', getTimestamp());
+form.append('file', fileFromSync('./reports/TBLSoftwareInventoryPopulation.json'));
 
-getTimestamp();
+fetch('https://openapi.tugboatlogic.com/api/v0/evidence/collector/26148/', {
+    method: 'POST',
+    headers: {
+        'X-API-KEY': `${process.env.TUGBOAT_X_API_KEY}`,
+        'Authorization': 'Basic ' + btoa(`${process.env.TUGBOAT_USERNAME}:${process.env.TUGBOAT_PASSWORD}`)
+    },
+    body: form
+});
+
