@@ -17,7 +17,7 @@ function getReports(token) {
         redirect: 'follow'
     }
     for (let i = 0; i < reportsArray.length; i++) {
-        fetch(url + reportsArray[i].id, headers)
+        fetch(reportsArray[i].source, headers)
         .then(res => res.text())
         .then(data => fs.writeFile(`./reports/${reportsArray[i].name}.json`, data, function (err) {
             if (err) throw err;

@@ -10,9 +10,7 @@ const fileReports = () => {
         const form = new FormData();
         form.append('collected', getTimestamp());
         form.append('file', fileFromSync(`./reports/${reportsArray[i].name}.json`));
-        
-        for (let i = 0; i < fileReports.length; i++)
-        fetch('https://openapi.tugboatlogic.com/api/v0/evidence/collector/26148/', {
+        fetch(`${reportsArray[i].dest}`, {
             method: 'POST',
             headers: {
                 'X-API-KEY': `${process.env.TUGBOAT_X_API_KEY}`,
@@ -22,6 +20,4 @@ const fileReports = () => {
         });
 }};
 
-console.log(reportsArray[0].name);
-
-//fileReports();
+fileReports();
