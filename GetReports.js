@@ -1,13 +1,8 @@
 import fs from 'fs';
 import { reportsArray } from './variables.js';
-
-const url = 'https://curebase.jamfcloud.com/JSSResource/'
-const path = 'TBLSoftwareInventoryPopulation'
-const full_path = url + path
-//const reportsArray = [2, 3, 10]
+//import { fileReport } from './FileReport.js';
 
 function getReports(token) {
-    
     const headers = {
         method: 'GET',
         headers: {
@@ -21,9 +16,11 @@ function getReports(token) {
         .then(res => res.text())
         .then(data => fs.writeFile(`./reports/${reportsArray[i].name}.json`, data, function (err) {
             if (err) throw err;
-            console.log("yo yo yo.")
         }))
+        //.then((fileReport(i)))
         .catch(error => console.log('error', error))
 }};
+
+getReports();
 
 export { getReports };

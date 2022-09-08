@@ -2,10 +2,11 @@ import fetch, { FormData, fileFromSync } from 'node-fetch';
 import { getTimestamp } from './GetTimestamp.js'
 import { reportsArray } from './variables.js'
 import dotenv from 'dotenv';
+import { getReports } from './GetReports.js';
 dotenv.config()
 
 
-const fileReports = () => {
+function fileReports() {
     for (let i = 0; i < reportsArray.length; i++) {
         const form = new FormData();
         form.append('collected', getTimestamp());
@@ -21,3 +22,5 @@ const fileReports = () => {
 }};
 
 fileReports();
+
+export { fileReports };
