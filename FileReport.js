@@ -7,7 +7,6 @@ dotenv.config()
 
 
 function fileReport(i) {
-    for (let i=0; i < getReports.length; i++) {
     const form = new FormData();
     form.append('collected', getTimestamp());
     form.append('file', fileFromSync(`./reports/${reportsArray[i].name}.json`));
@@ -19,6 +18,6 @@ function fileReport(i) {
         },
         body: form
     });
-}};
+};
 
 export { fileReport };

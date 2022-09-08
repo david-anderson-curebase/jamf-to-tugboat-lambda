@@ -21,6 +21,4 @@ function fileReports() {
         });
 }};
 
-fileReports();
-
 export { fileReports };

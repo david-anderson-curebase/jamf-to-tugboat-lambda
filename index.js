@@ -1,7 +1,7 @@
-import { getToken } from "./BearerRequest.js";
-import { getReport } from "./GetReport.js";
+import { getToken } from "./GetToken.js";
 import { getReports } from "./GetReports.js";
-import { fileReports } from "./FileReports.js";
-import { credentials, bearerHeaders } from "./variables.js";
+import { credentials, bearerHeaders, reportsArray } from "./variables.js";
+import { fileReports } from './FileReports.js'
 
-getToken(bearerHeaders, getReports)
+getToken();
+setTimeout(() => {fileReports()}, 3000)

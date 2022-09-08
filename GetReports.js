@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { reportsArray } from './variables.js';
 //import { fileReport } from './FileReport.js';
+import { reportsArray } from './variables.js';
 
 function getReports(token) {
     const headers = {
@@ -17,10 +17,9 @@ function getReports(token) {
         .then(data => fs.writeFile(`./reports/${reportsArray[i].name}.json`, data, function (err) {
             if (err) throw err;
         }))
-        //.then((fileReport(i)))
+        //.then(setTimeout(() => {fileReport(i)}, 1000))
         .catch(error => console.log('error', error))
-}};
-
-getReports();
+}
+};
 
 export { getReports };
