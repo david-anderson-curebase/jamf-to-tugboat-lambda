@@ -21,6 +21,4 @@ let reportsArray = [
     {'name': 'TBLPatchSoftwareTitles', 'source': `https://curebase.jamfcloud.com/JSSResource/patchsoftwaretitles`, 'dest': 'https://openapi.tugboatlogic.com/api/v0/evidence/collector/26215/'}
 ];
 
-
-
 export { credentials, bearerHeaders, reportsArray }

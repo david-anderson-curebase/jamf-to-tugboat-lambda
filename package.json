@@ -4,6 +4,9 @@
   "type": "module",
   "description": "the Node environment for running the code",
   "main": "index.js",
+  "engines": {
+    "node": ">=16"
+},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

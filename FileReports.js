@@ -4,7 +4,7 @@ import { reportsArray } from './variables.js'
 import dotenv from 'dotenv';
 import { getReports } from './GetReports.js';
 dotenv.config()
-
+const credentials = btoa(`${process.env.TUGBOAT_USERNAME}:${process.env.TUGBOAT_PASSWORD}`);
 
 function fileReports() {
     for (let i = 0; i < reportsArray.length; i++) {
@@ -20,5 +20,6 @@ function fileReports() {
             body: form
         });
 }};
+//console.log(credentials);
 
 export { fileReports };
