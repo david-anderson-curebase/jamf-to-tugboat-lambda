@@ -1,12 +1,6 @@
-import fs from 'fs';
+import { reportsArray } from './variables.js';
 
-const url = 'https://curebase.jamfcloud.com/JSSResource/computerreports'
-const path = 'computerreports'
-const full_path = url + path
-
-
-
-function getReport(token) {
+function getReport(token, i) {
     const headers = {
         method: 'GET',
         headers: {
@@ -15,12 +9,9 @@ function getReport(token) {
         },
         redirect: 'follow'
     }
-    fetch(url, headers)
-    .then(res => res.text())
-    .then(data => fs.writeFile(`${path}.json`, data, function (err) {
-        if (err) throw err;
-        console.log("yo yo yo.")
-    }))
+    fetch(reportsArray[i].source, headers)
+    .then(res => res.json())
+    .then(res => console.log(res))
     .catch(error => console.log('error', error))
 }
 

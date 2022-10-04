@@ -7,5 +7,4 @@ const getTimestamp = () => {
     return `${time.getFullYear()}-${month}-${date}`;
 }
 
-console.log(getTimestamp());
 export { getTimestamp };

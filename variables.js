@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config()
 
-
+// for getToken call
 const credentials = btoa(`${process.env.BEARER_ACCOUNT}:${process.env.BEARER_CREDENTIAL}`);
 const bearerHeaders = {
     method: 'POST',
@@ -12,6 +12,7 @@ const bearerHeaders = {
     redirect: 'follow'
 };
 
+// array and associated variables for reports
 const jamfBearerURL = 'https://curebase.jamfcloud.com/api/v1/auth/token';
 const jamfReportURL = 'https://curebase.jamfcloud.com/JSSResource/computerreports/id'
 
@@ -21,4 +22,4 @@ let reportsArray = [
     {'name': 'TBLPatchSoftwareTitles', 'source': `https://curebase.jamfcloud.com/JSSResource/patchsoftwaretitles`, 'dest': 'https://openapi.tugboatlogic.com/api/v0/evidence/collector/26215/'}
 ];
 
-export { credentials, bearerHeaders, reportsArray }
+export { bearerHeaders, reportsArray }

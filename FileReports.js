@@ -20,6 +20,5 @@ function fileReports() {
             body: form
         });
 }};
-//console.log(credentials);
 
 export { fileReports };
